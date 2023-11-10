@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dormManage.system.mapper.TeacherMapper">
+
+    <update id="deleteTeacher">
+        update dom_manage.teacher set teacher.deleted=1 where teacher_id = #{id}
+    </update>
+
+</mapper>

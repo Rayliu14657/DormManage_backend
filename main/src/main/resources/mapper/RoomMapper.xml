@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dormManage.system.mapper.RoomMapper">
+
+    <update id="changeRoomStatus">
+        update dom_manage.room
+        set room.is_used = #{status}
+        where room.room_id = #{roomId}
+    </update>
+
+    <select id="selectRoom" resultType="com.dormManage.system.model.Room">
+        select * from dom_manage.room where room_id=#{roomId}
+    </select>
+
+    <select id="selectAllRoom" resultType="com.dormManage.system.model.Room">
+        select * from dom_manage.room
+    </select>
+
+    <select id="selectEmptyRoom" resultType="com.dormManage.system.model.Room">
+        select * from dom_manage.room where is_used=0
+    </select>
+
+</mapper>

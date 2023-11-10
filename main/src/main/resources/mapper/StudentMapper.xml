@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dormManage.system.mapper.StudentMapper">
+
+    <!--根据学生ID查询 -->
+    <select id="selectStudentById" resultType="com.dormManage.system.model.Student">
+        select * from dom_manage.student where stu_id=#{id}
+    </select>
+
+    <!--添加学生-->
+    <insert id="insertStudent">
+        insert into
+            dom_manage.student(stu_id, character_id, hobby_id, time_id, health_id, ac_id, consumption_id, room_id, role_id, stu_name, stu_grade, stu_tel, stu_college, stu_major, stu_class, deleted, user_id)
+        values
+            (#{stuId},#{characterId},#{hobbyId},#{timeId},#{healthId},#{acId},#{consumptionId},#{roomId},#{roleId},#{stuName},#{stuGrade},#{stuTel},#{stuCollege},#{stuMajor},#{stuClass},0,#{userId})
+    </insert>
+
+    <update id="deleteStudent">
+        update dom_manage.student
+        set
+            deleted=1
+        where
+            stu_id=#{id}
+    </update>
+
+    <update id="updateStudent">
+        update dom_manage.student
+        set
+            character_id=#{characterId},
+            hobby_id=#{hobbyId},
+            time_id=#{timeId},
+            health_id=#{healthId},
+            ac_id=#{acId},
+            consumption_id=#{consumptionId},
+            room_id=#{roomId},
+            role_id=#{roleId},
+            stu_name=#{stuName},
+            stu_grade=#{stuGrade},
+            stu_tel=#{stuTel},
+            stu_college=#{stuCollege},
+            stu_major=#{stuMajor},
+            stu_class=#{stuClass},
+            user_id=#{userId}
+        where
+            stu_id=#{stuId}
+    </update>
+
+    <select id="match" resultType="com.dormManage.system.model.Student">
+        select * from dom_manage.student where stu_id != #{id} order by rand() limit 8
+    </select>
+
+
+
+
+
+
+</mapper>
