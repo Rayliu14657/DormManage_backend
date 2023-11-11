@@ -29,9 +29,9 @@ public class SwaggerConfig {
     private ApiInfo webApiInfo() {
         return new ApiInfoBuilder()
                 .title("基本信息模块-API文档")
-                .description("本文档描述了物流管理系统项目中基本信息模块的微服务接口定义")
+                .description("本文档描述了宿舍管理系统项目中基本信息模块的微服务接口定义")
                 .version("1.0")
-                .contact(new Contact("rayliu", "http://www.baidu.com", "2494793430@qq.com"))
+                .contact(new Contact("rayliu", "http://www.xxxxxxxxx.com", "2494793430@qq.com"))
                 .build();
     }
 
